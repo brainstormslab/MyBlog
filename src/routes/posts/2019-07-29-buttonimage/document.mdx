@@ -8,3 +8,60 @@ import reactLogo from './react-logo.svg'
   <img src={naviLogo} className={styles["logo-navi"]} alt="logo" />
   <img src={reactLogo} className={styles["logo-react"]} alt="logo" />
 </div>
+
+a simplier solution If you absolutely must use input, try this:
+
+background-image: url(...);
+background-repeat: no-repeat;
+background-position: <left|right>;
+padding-<left|right>: <width of image>px;
+It's usually a little easier to use a button with an img inside:
+
+<button type="submit"><img> Text</button>
+However the browser implementations of button for submitting are inconsistent, as well as the fact that all button values are sent when button is used - which kills the "what button clicked" detection in a multi-submit form.
+
+
+assuming your button image is 16 by 16 pixels.
+
+<input type="button" value="Add a new row" class="button-add" />
+input.button-add {
+    background-image: url(/images/buttons/add.png); /* 16px x 16px */
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 16px;           /* make this the size of your image */
+    padding-left: 16px;     /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+Example button:
+
+example button
+Update
+
+If you happen to use Less, this mixin might come in handy.
+
+.icon-button(@icon-url, @icon-size: 16px, @icon-inset: 10px, @border-color: #000, @background-color: transparent) {
+    height: @icon-size * 2;
+    padding-left: @icon-size + @icon-inset * 2;
+    padding-right: @icon-inset;
+    border: 1px solid @border-color;
+    background: @background-color url(@icon-url) no-repeat @icon-inset center;
+    cursor: pointer;
+}
+
+input.button-add {
+    .icon-button("http://placehold.it/16x16", @background-color: #ff9900);
+}
+The above compiles into
+
+input.button-add {
+  height: 32px;
+  padding-left: 36px;
+  padding-right: 10px;
+  border: 1px solid #000000;
+  background: #ff9900 url("http://placehold.it/16x16") no-repeat 10px center;
+  cursor: pointer;
+}
+
