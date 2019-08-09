@@ -1,0 +1,16 @@
+The buttons on the Online card needs refactor
+Remove isExpired and getIfPreReqIsExpired() and isExpired() are repeated twice and should be DRY and moved to a service. from SDCP-2442
+another topic https://www.digitalocean.com/community/tutorials/como-configurar-virtual-hosts-de-apache-en-ubuntu-16-04-es
+include some terraform topics https://www.terraform.io/intro/index.html
+CodeDEploy on aws
+For ADR Arquitecture Decision Records
+https://www.youtube.com/watch?v=rwfXkSjFhzc
+https://adr.github.io/madr/
+https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
+
+https://stackoverflow.com/questions/7556591/is-the-javascript-date-object-always-one-day-off/31732581#31732581
+https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
+https://help.github.com/en/articles/configuring-git-to-handle-line-endings
+https://stackoverflow.com/questions/10418975/how-to-change-line-ending-settings
+
+https://support.rackspace.com/how-to/como-modificar-mi-archivo-de-hosts/
