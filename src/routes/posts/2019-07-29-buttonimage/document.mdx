@@ -1,28 +1,27 @@
 import styles from './document.module.css'
-import naviLogo from './navi-logo.svg'
-import reactLogo from './react-logo.svg'
 
 <div className={styles["Welcome"]}>
 
 <div className={styles["logo"]}>
-  <img src={naviLogo} className={styles["logo-navi"]} alt="logo" />
-  <img src={reactLogo} className={styles["logo-react"]} alt="logo" />
 </div>
 
-a simplier solution If you absolutely must use input, try this:
+**a simplier solution If you absolutely must use input, try this:**
 
+```
 background-image: url(...);
 background-repeat: no-repeat;
 background-position: <left|right>;
 padding-<left|right>: <width of image>px;
-It's usually a little easier to use a button with an img inside:
+  ```
 
-<button type="submit"><img> Text</button>
+**It's usually a little easier to use a button with an img inside:**
+
+```<button type="submit"><img> Text</button>```
 However the browser implementations of button for submitting are inconsistent, as well as the fact that all button values are sent when button is used - which kills the "what button clicked" detection in a multi-submit form.
 
 
-assuming your button image is 16 by 16 pixels.
-
+**Assuming your button image is 16 by 16 pixels.**
+```
 <input type="button" value="Add a new row" class="button-add" />
 input.button-add {
     background-image: url(/images/buttons/add.png); /* 16px x 16px */
@@ -35,6 +34,7 @@ input.button-add {
     padding-left: 16px;     /* make text start to the right of the image */
     vertical-align: middle; /* align the text vertically centered */
 }
+
 Example button:
 
 example button
@@ -65,3 +65,6 @@ input.button-add {
   cursor: pointer;
 }
 
+```
+
+</div>

@@ -23,6 +23,7 @@ let chunkPagePairs = chunks.map((chunk, i) => [
     let postRoutes = await Promise.all(
       chunk.map(async post => {
         let href = join(context.blogRoot, 'posts', post.slug)
+        
         return await resolve({
           // If you want to show the page content on the index page, set
           // this to 'GET' to be able to access it.

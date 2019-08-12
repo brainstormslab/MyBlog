@@ -27,7 +27,7 @@ let postDetails = postPathnames.map(pathname => {
   return {
     slug,
     pathname,
-    date,
+    date
   }
 })
 

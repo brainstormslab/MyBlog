@@ -1,1 +1,90 @@
-https://stackoverflow.com/questions/7556591/is-the-javascript-date-object-always-one-day-off/31732581#31732581
+import styles from './document.module.css'
+
+
+<div className={styles["Welcome"]}>
+
+<div className={styles["logo"]}>
+</div>
+
+
+There are **several crazy** things that happen with a JS **DATE** object that convert strings, for example consider the following date you provided
+
+**Note:** The following examples may or may not be **ONE DAY OFF** depending on **YOUR** timezone and current time.
+```
+new Date("2011-09-24"); // Year-Month-Day
+// => Fri Sep 23 2011 17:00:00 GMT-0700 (MST) - ONE DAY OFF.
+```
+However, if we rearrange the string format to **Month-Day-Year...**
+```
+new Date("09-24-2011");
+=> // Sat Sep 24 2011 00:00:00 GMT-0700 (MST) - CORRECT DATE.
+```
+
+Another strange one
+```
+new Date("2011-09-24");
+// => Fri Sep 23 2011 17:00:00 GMT-0700 (MST) - ONE DAY OFF AS BEFORE.
+
+new Date("2011/09/24"); // change from "-" to "/".
+=> // Sat Sep 24 2011 00:00:00 GMT-0700 (MST) - CORRECT DATE.
+```
+
+We could easily change hyphens in your date **"2011-09-24"** when making a new date
+```
+new Date("2011-09-24".replace(/-/g, '\/')); // => "2011/09/24".
+=> // Sat Sep 24 2011 00:00:00 GMT-0700 (MST) - CORRECT DATE.
+```
+What if we had a date string like **"2011-09-24T00:00:00"**
+```
+new Date("2011-09-24T00:00:00");
+// => Fri Sep 23 2011 17:00:00 GMT-0700 (MST) - ONE DAY OFF.
+```
+Now change **hyphen** to **forward slash** as before; what happens?
+```
+new Date("2011/09/24T00:00:00");
+// => Invalid Date
+```
+I typically have to manage the date format **2011-09-24T00:00:00** so this is what I do.
+```
+new Date("2011-09-24T00:00:00".replace(/-/g, '\/').replace(/T.+/, ''));
+// => Sat Sep 24 2011 00:00:00 GMT-0700 (MST) - CORRECT DATE.
+```
+If you provide separate arguments to the Date constructor you can get other useful outputs as described below
+
+**Note:** arguments can be of type Number or String. I'll show examples with mixed values.
+
+Get the first month and day of a given year
+```
+new Date(2011, 0); // Normal behavior as months in this case are zero based.
+=> // Sat Jan 01 2011 00:00:00 GMT-0700 (MST)
+```
+Get the last month and day of a year
+```
+new Date((2011 + 1), 0, 0); // The second zero roles back one day into the previous month's last day.
+=> // Sat Dec 31 2011 00:00:00 GMT-0700 (MST)
+```
+Example of Number, String arguments. Note the month is March because zero based months again.
+```
+new Date(2011, "02"); 
+=> // Tue Mar 01 2011 00:00:00 GMT-0700 (MST)
+```
+If we do the same thing but with a day of zero, we get something different.
+```
+new Date(2011, "02", 0); // again the zero roles back from March to the last day of February.
+=> // Mon Feb 28 2011 00:00:00 GMT-0700 (MST)
+```
+Adding a day of zero to any year and month argument will get the last day of the previous month. If you continue with negative numbers you can continue rolling back another day
+```
+new Date(2011, "02", -1);
+=> // Sun Feb 27 2011 00:00:00 GMT-0700 (MST)
+```
+
+**Important look at this**, this is a good solution for no fall down on the error of **ONE DAY OFF**
+```
+new Date("2011-09-24T00:00:00".replace(/-/g, '\/').replace(/T.+/, ''));
+// => Sat Sep 24 2011 00:00:00 GMT-0700 (MST) - CORRECT DATE.
+```
+
+Origin : https://stackoverflow.com/questions/7556591/is-the-javascript-date-object-always-one-day-off/31732581#31732581
+
+</div>
