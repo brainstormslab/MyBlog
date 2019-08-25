@@ -1,6 +1,15 @@
 Use google translate for abbreviation
 Create app that generate commits
 Create react native app
+<<<<<<< HEAD
 Use this for exposing endpoint of lambda https://stackoverflow.com/questions/29877220/invoke-a-aws-lambda-function-by-a-http-request
 the timed lambda is https://serverless.com/framework/docs/providers/aws/events/schedule/ i dont think is need i will read from http request but i need something to add changes
 commit in lambda https://blog.enki.com/using-git-on-aws-lambda-f365a2db706b
+=======
+Create page for https://coding.abel.nu/2012/06/programmer-time-translation-table/
+Create post for https://medium.com/better-programming/here-is-a-simple-yet-powerful-tool-to-record-your-architectural-decisions-5fb31367a7da
+create post for https://github.com/joelparkerhenderson/architecture_decision_record/blob/master/adr_template_for_business_case.md
+create post for https://hackernoon.com/monitor-your-aws-codebuilds-via-lambda-and-slack-ae2c621f68f1
+create post for https://stelligent.com/2017/10/24/get-notified-on-aws-codepipeline-errors/
+create post for terraform https://learn.hashicorp.com/terraform
+>>>>>>> 7e741c520a756dd39d5cd8e1fb6540761278eec8
