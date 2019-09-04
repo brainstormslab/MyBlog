@@ -31,3 +31,12 @@ It’s about something a guy named Marcus Aurelius told himself 2,000 years ago:
 
 
 https://lab.github.com/
+
+for an articles
+There is much said about the SOLID principles. If you’re not familiar, the SOLID principles of Object Oriented development are:
+
+Single Responsibility Principle
+Open/Closed Principle
+Liskov Substition Principle
+Interface Segregation Principle
+Dependency Inversion Principle
