@@ -1,0 +1,63 @@
+import styles from './document.module.css'
+
+
+<div className={styles["Welcome"]}>
+
+<div className={styles["logo"]}>
+</div>
+
+We need to install appium inside the environment even that you run this for all your computer
+
+npm instal - g appium
+
+to create the virtual environment or the workspace you need to install virualenv after that you can run the next Scripts
+
+$ virtualenv workspace
+$ cd workspace
+$ source bin/activate
+$ pip install pytest
+
+On windows to start the virtualenv we require to run the script activate that is on Scripts
+Scripts\activate
+this is instead of source bin/activate that doesnt exist on windows.
+
+ore all python test scripts under the tests/ folder in your work space.
+- workspace
+  |
+  - tests/ (your tests go here)
+Make sure you have py.test installed in your virtual environment and test cases are discoverable by the following command which you should run from your virtual environment ‘workspace' folder. Make sure the output of py.test command below shows you the tests that you want to execute on Device Farm
+
+$ py.test --collect-only tests/
+
+Go to your work space and run the following command to generate the requirements.txt file.
+$ pip freeze > requirements.txt
+
+Go to your work space and run the following command to generate the wheelhouse/ folder:
+$ pip wheel --wheel-dir wheelhouse -r requirements.txt
+
+You can clean all cached files under your tests/ folder with the following commands:
+$ find . -name '__pycache__' -type d -exec rm -r {} +
+$ find . -name '*.pyc' -exec rm -f {} +
+$ find . -name '*.pyo' -exec rm -f {} +
+$ find . -name '*~' -exec rm -f {} +
+you can omit this but is better to have it clean sometimes if we have a file like __test__ will generate issues when you run the pytest.
+
+
+Zip the tests/ folder, wheelhouse/ folder, and the requirements.txt file into a single archive:
+$ zip -r test_bundle.zip tests/ wheelhouse/ requirements.txt
+
+Your workspace would eventually look like:
+- workspace
+  |
+   - tests/
+  |
+   - test_bundle.zip
+  |
+   - requirements.txt
+  |
+   - wheelhouse/
+
+
+Basic example is from this Repository from AWS-Samples
+https://github.com/aws-samples/aws-device-farm-sample-web-app-using-appium-python
+</div>

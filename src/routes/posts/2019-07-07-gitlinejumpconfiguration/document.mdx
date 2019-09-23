@@ -1,0 +1,134 @@
+import styles from './document.module.css'
+
+
+<div className={styles["Welcome"]}>
+
+<div className={styles["logo"]}>
+</div>
+
+
+To avoid problems in your diffs, you can configure Git to properly handle line endings.
+Every time you press return on your keyboard you're actually inserting an invisible character called a line ending. Historically, different operating systems have handled line endings differently.
+
+When you view changes in a file, Git handles line endings in its own way. Since you're collaborating on projects with Git and GitHub, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in OS X.
+
+Global settings for line endings
+The git config core.autocrlf command is used to change how Git handles line endings. It takes a single argument.
+
+On Windows, you simply pass true to the configuration. For example:
+
+$ git config --global core.autocrlf true
+# Configure Git on Windows to properly handle line endings
+
+when you install git in windows
+
+There is a menu that will let you change the settings on how to deal with line endings?
+
+There are 3 options:
+
+Checkout Windows-style, commit Unix-style
+
+Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows ("core.autocrlf" is set to "true")
+
+Checkout as-is, commit Unix-style
+
+Git will not perform any conversion when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects this is the recommended setting on Unix ("core.autocrlf" is set to "input").
+
+Checkout as-is, commit as-is
+
+Git will not perform any conversions when checking out or committing text files. Choosing this option is not recommended for cross-platform projects ("core.autocrlf" is set to "false")
+
+
+The normal way to control this is with git config
+
+For example
+
+git config --global core.autocrlf true
+
+These messages or errors are due to incorrect default value of core.autocrlf on Windows.
+
+The concept of autocrlf is to handle line endings conversions transparently. And it does!
+
+Bad news: value needs to be configured manually.
+Good news: it should only be done ONE time per git installation (per project setting is also possible).
+
+How autocrlf works:
+
+core.autocrlf=true:      core.autocrlf=input:     core.autocrlf=false:
+
+        repo                     repo                     repo
+      ^      V                 ^      V                 ^      V
+     /        \               /        \               /        \
+crlf->lf    lf->crlf     crlf->lf       \             /          \      
+   /            \           /            \           /            \
+Here crlf = win-style end-of-line marker, lf = unix-style (and mac osx).
+
+(pre-osx cr in not affected for any of three options above)
+
+When does this warning show up (under Windows)
+
+    – autocrlf = true if you have unix-style lf in one of your files (= RARELY),
+    – autocrlf = input if you have win-style crlf in one of your files (= almost ALWAYS),
+    – autocrlf = false – NEVER!
+
+What does this warning mean
+
+The warning "LF will be replaced by CRLF" says that you (having autocrlf=true) will lose your unix-style LF after commit-checkout cycle (it will be replaced by windows-style CRLF). Git doesn't expect you to use unix-style LF under windows.
+
+The warning "CRLF will be replaced by LF" says that you (having autocrlf=input) will lose your windows-style CRLF after a commit-checkout cycle (it will be replaced by unix-style LF). Don't use input under windows.
+
+Yet another way to show how autocrlf works
+
+1) true:             x -> LF -> CRLF
+2) input:            x -> LF -> LF
+3) false:            x -> x -> x
+where x is either CRLF (windows-style) or LF (unix-style) and arrows stand for
+
+file to commit -> repository -> checked out file
+How to fix
+
+Default value for core.autocrlf is selected during git installation and stored in system-wide gitconfig (%ProgramFiles(x86)%\git\etc\gitconfig). Also there're (cascading in the following order):
+
+   – "global" (per-user) gitconfig located at ~/.gitconfig, yet another
+   – "global" (per-user) gitconfig at $XDG_CONFIG_HOME/git/config or $HOME/.config/git/config and
+   – "local" (per-repo) gitconfig at .git/config in the working dir.
+
+So, write git config core.autocrlf in the working dir to check the currently used value and
+
+   – add autocrlf=false to system-wide gitconfig         # per-system solution
+   – git config --global core.autocrlf false            # per-user solution
+   – git config --local core.autocrlf false              # per-project solution
+
+Warnings
+– git config settings can be overridden by gitattributes settings.
+– crlf -> lf conversion only happens when adding new files, crlf files already existing in the repo aren't affected.
+
+Moral (for Windows):
+    - use core.autocrlf = true if you plan to use this project under Unix as well (and unwilling to configure your editor/IDE to use unix line endings),
+    - use core.autocrlf = false if you plan to use this project under Windows only (or you have configured your editor/IDE to use unix line endings),
+    - never use core.autocrlf = input unless you have a good reason to (eg if you're using unix utilities under windows or if you run into makefiles issues),
+
+PS What to choose when installing git for Windows?
+If you're not going to use any of your projects under Unix, don't agree with the default first option. Choose the third one (Checkout as-is, commit as-is). You won't see this message. Ever.
+
+PPS My personal preference is configuring the editor/IDE to use Unix-style endings, and setting core.autocrlf to false.
+
+Refreshing a repository after changing line endings this is if you already have the issue
+After you've set the core.autocrlf option and committed a .gitattributes file, you may find that Git wants to commit files that you have not modified. At this point, Git is eager to change the line endings of every file for you.
+
+The best way to automatically configure your repository's line endings is to first backup your files with Git, delete every file in your repository (except the .git directory), and then restore the files all at once.
+
+Save your current files in Git, so that none of your work is lost.
+
+$ git add . -u
+$ git commit -m "Saving files before refreshing line endings"
+Add all your changed files back and normalize the line endings.
+
+$ git add --renormalize
+Show the rewritten, normalized files.
+
+$ git status
+Commit the changes to your repository.
+
+$ git commit -m "Normalize all the line endings"
+</div>
