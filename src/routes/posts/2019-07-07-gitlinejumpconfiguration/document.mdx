@@ -16,25 +16,25 @@ Global settings for line endings
 The git config core.autocrlf command is used to change how Git handles line endings. It takes a single argument.
 
 On Windows, you simply pass true to the configuration. For example:
-
+```jsx
 $ git config --global core.autocrlf true
 # Configure Git on Windows to properly handle line endings
-
+```
 when you install git in windows
 
 There is a menu that will let you change the settings on how to deal with line endings?
 
 There are 3 options:
 
-Checkout Windows-style, commit Unix-style
+*Checkout Windows-style, commit Unix-style*
 
 Git will convert LF to CRLF when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows ("core.autocrlf" is set to "true")
 
-Checkout as-is, commit Unix-style
+*Checkout as-is, commit Unix-style*
 
 Git will not perform any conversion when checking out text files. When committing text files, CRLF will be converted to LF. For cross-platform projects this is the recommended setting on Unix ("core.autocrlf" is set to "input").
 
-Checkout as-is, commit as-is
+*Checkout as-is, commit as-is*
 
 Git will not perform any conversions when checking out or committing text files. Choosing this option is not recommended for cross-platform projects ("core.autocrlf" is set to "false")
 
@@ -42,9 +42,9 @@ Git will not perform any conversions when checking out or committing text files.
 The normal way to control this is with git config
 
 For example
-
+```jsx
 git config --global core.autocrlf true
-
+```
 These messages or errors are due to incorrect default value of core.autocrlf on Windows.
 
 The concept of autocrlf is to handle line endings conversions transparently. And it does!
@@ -53,7 +53,7 @@ Bad news: value needs to be configured manually.
 Good news: it should only be done ONE time per git installation (per project setting is also possible).
 
 How autocrlf works:
-
+```jsx
 core.autocrlf=true:      core.autocrlf=input:     core.autocrlf=false:
 
         repo                     repo                     repo
@@ -71,6 +71,7 @@ When does this warning show up (under Windows)
     – autocrlf = input if you have win-style crlf in one of your files (= almost ALWAYS),
     – autocrlf = false – NEVER!
 
+```
 What does this warning mean
 
 The warning "LF will be replaced by CRLF" says that you (having autocrlf=true) will lose your unix-style LF after commit-checkout cycle (it will be replaced by windows-style CRLF). Git doesn't expect you to use unix-style LF under windows.
@@ -78,12 +79,12 @@ The warning "LF will be replaced by CRLF" says that you (having autocrlf=true) w
 The warning "CRLF will be replaced by LF" says that you (having autocrlf=input) will lose your windows-style CRLF after a commit-checkout cycle (it will be replaced by unix-style LF). Don't use input under windows.
 
 Yet another way to show how autocrlf works
-
+```jsx
 1) true:             x -> LF -> CRLF
 2) input:            x -> LF -> LF
 3) false:            x -> x -> x
 where x is either CRLF (windows-style) or LF (unix-style) and arrows stand for
-
+```
 file to commit -> repository -> checked out file
 How to fix
 
