@@ -25,12 +25,23 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
           </h3>
         </header>
       )}
-
+      <div className={styles.wrapper}>
+        <div className={styles.row}>
+          <div className={styles.column}>
+          <div className={styles.centercolumn}>
       <main>
         <NotFoundBoundary render={() => <NotFoundPage />}>
           <View />
         </NotFoundBoundary>
-      </main>
+      </main></div>
+          </div>
+          <div className={styles.column}>
+          <div className={styles.rightcolumn}>
+            
+          </div>
+          </div>
+      </div>
+      </div>
     </div>
   )
 }

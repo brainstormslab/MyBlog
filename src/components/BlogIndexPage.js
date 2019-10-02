@@ -30,7 +30,7 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
           pageNumber={pageNumber}
         />
       }
-      <footer className={styles.footer}>
+      <div className={styles.floatingdiv}>
         <div>
           <a
             href='./rss.xml'
@@ -48,7 +48,7 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
             Source
           </a>
         </div>
-      </footer>
+      </div>
     </div>
   )
 }

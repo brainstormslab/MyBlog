@@ -1,11 +1,11 @@
 .container {
   margin: 0 auto;
-  max-width: 42rem;
+  max-width: 90%;
   padding: 2.625rem 1.3125rem;
 }
 
 .title {
-  font-family: Montserrat, sans-serif;
+  font-family: avenir, sans-serif;
   font-size: 1.44rem;
   font-weight: 900;
   line-height: 1.1;
@@ -16,4 +16,34 @@
 .title > a {
   color: var(--primary-color-light);
   text-decoration: none;
+}
+
+.wrapper{
+  display: flex;
+  margin: 15px;
+  background-color: black;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.leftcolumn{
+  background-color: black;
+}
+.centercolumn{
+  background-color: black;
+}
+.rightcolumn{
+  background-color: black;
 }

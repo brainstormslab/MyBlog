@@ -13,12 +13,12 @@
 :global html {
   color: rgba(255,255,255,0.8);
   background-color: var(--secondary-color);
-  font: 100%/1.75 Morriweather, Georgia, serif;
+  font: 100%/1.75 "Avenir Roman";
 }
 
 :global body {
   font-kerning: normal;
-  font-family: 'Merriweather','Georgia',serif;
+  font-family: "Avenir Roman";
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-weight: 400;
   margin: 0;
@@ -28,7 +28,7 @@
 
 :global(pre),
 :global(code) {
-  font-family: Consolas, Menlo, Monaco, source-code-pro, "Courier New", monospace;
+  font-family: Consolas, Menlo, Monaco, source-code-pro, "Avenir Roman", monospace;
   font-size: 0.85rem;
   line-height: 1.5;
 }
