@@ -8,7 +8,8 @@ import {
 import siteMetadata from '../siteMetadata'
 import NotFoundPage from './NotFoundPage'
 import LoadingIndicator from './LoadingIndicator'
-import styles from './BlogLayout.module.css'
+import styles from './BlogLayout.module.scss'
+import Bio from './Bio'
 
 function BlogLayout({ blogRoot, isViewingIndex }) {
   let loadingRoute = useLoadingRoute()
@@ -28,17 +29,39 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
       <div className={styles.wrapper}>
         <div className={styles.row}>
           <div className={styles.column}>
-          <div className={styles.centercolumn}>
-      <main>
-        <NotFoundBoundary render={() => <NotFoundPage />}>
-          <View />
-        </NotFoundBoundary>
-      </main></div>
+            <div className={styles.leftcolumn}>
+              <Bio />
+            </div>
           </div>
           <div className={styles.column}>
-          <div className={styles.rightcolumn}>
-            
+            <div className={styles.centercolumn}>
+              <main>
+                <NotFoundBoundary render={() => <NotFoundPage />}>
+                  <View />
+                </NotFoundBoundary>
+              </main>
+            </div>
           </div>
+          <div className={styles.column}>
+            <div className={styles.rightcolumn}>
+                <div>
+                  <a
+                    href='./rss.xml'
+                    target='_blank'
+                    style={{ float: 'right' }}>
+                    RSS
+                  </a>
+                  <Link href='./about'>
+                    About
+                  </Link> &bull;{' '}
+                  <Link href='./tags'>
+                    Tags
+                  </Link> &bull;{' '}
+                  <a href='https://github.com/brainstormslab/MyBlog'>
+                    Source
+                  </a>
+                </div>
+            </div>
           </div>
       </div>
       </div>

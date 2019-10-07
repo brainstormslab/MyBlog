@@ -2,9 +2,8 @@ import React from 'react'
 import { Link } from 'react-navi'
 import siteMetadata from '../siteMetadata'
 import ArticleSummary from './ArticleSummary'
-import Bio from './Bio'
 import Pagination from './Pagination'
-import styles from './BlogIndexPage.module.css'
+import styles from './BlogIndexPage.module.scss'
 
 function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
   return (
@@ -13,7 +12,6 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
         <h1 className={styles.title}>
           <Link href={blogRoot}>{siteMetadata.title}</Link>
         </h1>
-        <Bio />
       </header>
       <ul className={styles.articlesList}>
         {postRoutes.map(route =>
@@ -30,25 +28,7 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
           pageNumber={pageNumber}
         />
       }
-      <div className={styles.floatingdiv}>
-        <div>
-          <a
-            href='./rss.xml'
-            target='_blank'
-            style={{ float: 'right' }}>
-            RSS
-          </a>
-          <Link href='./about'>
-            About
-          </Link> &bull;{' '}
-          <Link href='./tags'>
-            Tags
-          </Link> &bull;{' '}
-          <a href='https://github.com/brainstormslab/MyBlog'>
-            Source
-          </a>
-        </div>
-      </div>
+      
     </div>
   )
 }

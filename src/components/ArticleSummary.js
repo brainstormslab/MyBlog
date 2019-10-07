@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-navi'
 import ArticleMeta from './ArticleMeta'
-import styles from './ArticleSummary.module.css'
+import styles from './ArticleSummary.module.scss'
 
 function ArticleSummary({ blogRoot, route }) {
   return (

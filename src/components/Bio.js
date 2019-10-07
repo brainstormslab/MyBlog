@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Bio.module.css'
+import styles from './Bio.module.scss'
 import { getGravatarURL } from '../utils/getGravatarURL'
 
 function Bio(props) {
@@ -9,16 +9,21 @@ function Bio(props) {
   })
 
   return (
-    <div className={`
-      ${styles.Bio}
-      ${props.className || ''}
-    `}>
-      <img src={photoURL} alt="Me" />
-      <p>
-        Ideas and solutions of a Jack of all trades, master of none but oftentimes better than a master of one. Still looking for improving all trades, by{' '}
-        <a href="https://github.com/fsalazarnearbpo">Francisco Daniel Salazar</a>.
-        
-      </p>
+    <div>
+      <div className={`
+          ${styles.Bio}
+          ${props.className || ''}
+        `}>
+          <img src={photoURL} alt="Me" />
+          <p>
+            Ideas and solutions of a Jack of all trades, master of none but oftentimes better than a master of one. Still looking for improving all trades, by{' '}
+            <a href="https://github.com/fsalazarnearbpo">Francisco Daniel Salazar</a>.
+            
+          </p>
+        </div>
+      <div className={`
+        ${styles.backcontainer}`}>
+      </div>
     </div>
   )
 }

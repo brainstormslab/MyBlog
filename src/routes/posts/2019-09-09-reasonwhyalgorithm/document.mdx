@@ -1,0 +1,25 @@
+Miguel Oliveira, Software Engineer at Facebook
+Answered Aug 24 · Upvoted by Muhammad Shaikh, M.S Computer Science, Rashtrasant Tukadoji Maharaj Nagpur University (2012) and Mukesh Tiwari, PhD Computer Science, Australian National University
+I can give you a real world example from when I worked at Google.
+
+My team wrote a simple implementation to try a new ML algorithm to train a classifier (details don’t matter). Initially, training was done with a small set of data, say 100k examples. So, the implementation didn’t matter much, it was still fast.
+
+The system worked, but we wanted better accuracy. So, the easiest attempt was increasing the training data size to a few million. The problem was that each training iteration now took 24, 26, 30, .. hours.
+
+I noticed that the original implementation was using Binary Search Trees, but we didn’t care about ordering. So we could use Hash Tables. A simple find and replace ‘set’ by ‘hash_set’ yielded a 3x speed up - each iteration now took 8 hours (constant).
+
+This was great. I got a lot of praise and was excited to look for more optimizations doing profiling.
+
+So, I found a O(N^2) piece that was assigning a value to each element in an array under certain restrictions. This simple nested loop had 5 lines of code (2 fors and 1 if) and took more than 1 hour of processing.
+
+After some thought, I found a O(N log N) approach with pre-processing and binary search. This piece now took under a second to execute - saving 1 hour of cpu in each training iteration.
+
+The problem is that this approach was way more complicated: everyone understood the nested loop in a few seconds; this approach took extensive code comments to help others understand what it was doing. It took me a few days to write the code, write tests and run training (remember training takes days to finish), plus time from my code reviewers.
+
+I was still excited about these optimizations, but fortunately my manager pulled me aside and made me understand that engineering time is much more expensive than cpu.
+
+This was not a system running in production. The training was done offline and its runtime was not critical. Taking 24 vs 26 hours to finish didn’t matter that much.
+
+My efforts were going to provide diminished returns, and each optimization was making the code more difficult to maintain. The conclusion is that the 5 line nested loop that took 1 hour was actually fine. My complex optimization was not worth our (engineers) time.
+
+PS: this is also an example why we test for data structures and algorithms in interviews.
