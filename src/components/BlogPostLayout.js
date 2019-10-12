@@ -40,10 +40,9 @@ function BlogPostLayout({ blogRoot }) {
         <footer className={styles.footer}>
           <h3 className={styles.title}>
             <Link href={blogRoot}>
-              {siteMetadata.title}
+              Go back to List of Articles 
             </Link>
           </h3>
-          <Bio className={styles.bio} />
           <section className={styles.links}>
             {
               data.previousDetails &&
