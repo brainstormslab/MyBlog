@@ -5,6 +5,7 @@
   "dependencies": {
     "blueimp-md5": "^2.3.0",
     "feed": "^2.0.2",
+    "html-react-parser": "^0.9.1",
     "import-all.macro": "^2.0.3",
     "lodash": "^4.17.11",
     "navi": "^0.13.6",

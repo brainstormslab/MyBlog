@@ -1,7 +1,5 @@
 .container {
   margin: 0 auto;
-  max-width: 90%;
-  padding: 2.625rem 1.3125rem;
 }
 
 .title {
@@ -21,7 +19,6 @@
 .wrapper{
   display: flex;
   margin: 15px;
-  background-color: black;
 }
 
 .row{
@@ -39,11 +36,13 @@
 }
 
 .leftcolumn{
-  background-color: red;
+  padding: 2.625rem 1.3125rem;
 }
+
 .centercolumn{
-  background-color: black;
+  padding: 2.625rem 1.3125rem;
 }
+
 .rightcolumn{
-  background-color: blue;
+  padding: 2.625rem 1.3125rem;
 }

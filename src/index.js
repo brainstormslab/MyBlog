@@ -4,10 +4,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "react-navi";
 import HelmetProvider from "react-navi-helmet-async";
-import "./index.module.css";
+import "./index.module.scss";
 import routes from "./routes";
 import * as serviceWorker from "./serviceWorker";
-import "./fonts/fonts.module.css";
+import "./fonts/fonts.module.scss";
 
 // `register()` is responsible for exporting your app's pages and App
 // component to the static renderer, and for starting the app with the
