@@ -10,6 +10,7 @@ import NotFoundPage from './NotFoundPage'
 import LoadingIndicator from './LoadingIndicator'
 import styles from './BlogLayout.module.scss'
 import Bio from './Bio'
+import ProjectsSection from './ProjectsSection'
 
 function BlogLayout({ blogRoot, isViewingIndex }) {
   let loadingRoute = useLoadingRoute()
@@ -44,23 +45,7 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
           </div>
           <div className={styles.column}>
             <div className={styles.rightcolumn}>
-                <div>
-                  <a
-                    href='./rss.xml'
-                    target='_blank'
-                    style={{ float: 'right' }}>
-                    RSS
-                  </a>
-                  <Link href='./about'>
-                    About
-                  </Link> &bull;{' '}
-                  <Link href='./tags'>
-                    Tags
-                  </Link> &bull;{' '}
-                  <a href='https://github.com/brainstormslab/MyBlog'>
-                    Source
-                  </a>
-                </div>
+                <ProjectsSection />
             </div>
           </div>
       </div>

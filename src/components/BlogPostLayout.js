@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link, useCurrentRoute, useView } from 'react-navi'
 import { MDXProvider } from '@mdx-js/react'
-import siteMetadata from '../siteMetadata'
 import ArticleMeta from './ArticleMeta'
-import Bio from './Bio'
 import styles from './BlogPostLayout.module.scss'
 
 function BlogPostLayout({ blogRoot }) {
