@@ -3,6 +3,7 @@ import { Link } from 'react-navi'
 import siteMetadata from '../siteMetadata'
 import ArticleSummary from './ArticleSummary'
 import Pagination from './Pagination'
+import BlogDescription from './BlogDescription'
 import styles from './BlogIndexPage.module.scss'
 
 function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
@@ -13,6 +14,7 @@ function BlogIndexPage({ blogRoot, pageCount, pageNumber, postRoutes }) {
           <Link href={blogRoot}>{siteMetadata.title}</Link>
         </h1>
       </header>
+      <BlogDescription/>
       <ul className={styles.articlesList}>
         {postRoutes.map(route =>
           <li key={route.url.href}>

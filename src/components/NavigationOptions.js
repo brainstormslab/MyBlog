@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-navi'
 // import styles from './NavigationOptions.module.scss'
 
+// Using react function components to render
+// good explanation https://www.robinwieruch.de/react-function-component
 function NavigationOptions(){
 
     return (
