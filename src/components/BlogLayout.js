@@ -25,6 +25,7 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
           <h3 className={styles.title}>
             <Link href={blogRoot}>{siteMetadata.title}</Link>
           </h3>
+          <script src="particles.js"></script>
         </header>
       )}
       <div className={styles.wrapper}>

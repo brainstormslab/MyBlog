@@ -38,7 +38,7 @@ function BlogPostLayout({ blogRoot }) {
         <footer className={styles.footer}>
           <h3 className={styles.title}>
             <Link href={blogRoot}>
-              Go back to Ideas and Solutions worth Saving
+              List All Ideas and Solutions worth Saving
             </Link>
           </h3>
           <section className={styles.links}>

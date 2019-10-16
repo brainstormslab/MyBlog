@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import styles from './Bio.module.scss'
 import { getGravatarURL } from '../utils/getGravatarURL'
 
@@ -8,20 +9,31 @@ function Bio(props) {
     size: 56,
   })
 
+  const Hexagon = ({ value }) =>{
+    const classes = 'hexagon r' + value;
+    return <div className={classes}></div>;
+  };
+  
   function addHexes(r) {
-    var hexagonchain='';
-    for(var i = 1; i <= (6 * r); i++) {
-      hexagonchain +=  '<div class="hexagon r' + r + '"></div>';
-    }
-    return  hexagonchain;
+      for(var i = 1; i <= (6 * r); i++) {
+        ReactDOM.render(
+          <Hexagon value={r} />,
+          document.getElementById('backcontainer')
+        );
+      }
   }
-
+  
+  ReactDOM.render(
+    <Hexagon value={0} />,
+    document.getElementById('backcontainer')
+  );
+  
   var radius = 8 //Hex-radius
-
+  
   for(var r = 1; r < radius; ++r) {
     addHexes(r);
   } 
-
+  
   return (
     <div>
       <div className={`
@@ -35,9 +47,7 @@ function Bio(props) {
             
           </p>
         </div>
-      <div className={`
-        ${styles.backcontainer}`}>
-          <div class="hexagon r0"></div>
+      <div id='backcontainer'>
       </div>
     </div>
   )
