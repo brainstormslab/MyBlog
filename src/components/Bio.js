@@ -11,28 +11,25 @@ function Bio(props) {
 
   const Hexagon = ({ value }) =>{
     const classes = 'hexagon r' + value;
-    return <div className={classes}></div>;
-  };
-  
-  function addHexes(r) {
+    return <div className={classes}></div>
+   };
+   
+   function addHexes(r) {
+    let arr = [];
       for(var i = 1; i <= (6 * r); i++) {
-        ReactDOM.render(
-          <Hexagon value={r} />,
-          document.getElementById('backcontainer')
-        );
+        arr.push(<Hexagon value={r} />);
       }
-  }
-  
-  ReactDOM.render(
+    ReactDOM.render(<div>{arr}</div>,
+     document.getElementById('container')
+    );
+   }
+   
+   ReactDOM.render(
     <Hexagon value={0} />,
-    document.getElementById('backcontainer')
-  );
-  
-  var radius = 8 //Hex-radius
-  
-  for(var r = 1; r < radius; ++r) {
-    addHexes(r);
-  } 
+    document.getElementById('container')
+   );
+   
+   addHexes(8);
   
   return (
     <div>
