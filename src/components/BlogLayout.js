@@ -11,12 +11,14 @@ import LoadingIndicator from './LoadingIndicator'
 import styles from './BlogLayout.module.scss'
 import Bio from './Bio'
 import ProjectsSection from './ProjectsSection'
+import BackgroundHexa from './BackgroundHexa'
 
 function BlogLayout({ blogRoot, isViewingIndex }) {
   let loadingRoute = useLoadingRoute()
 
   return (
     <div className={styles.container}>
+      <BackgroundHexa />
       <LoadingIndicator active={!!loadingRoute} />
 
       {// Don't show the header on index pages, as it has a special header.
