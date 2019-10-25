@@ -90,3 +90,17 @@ The fisherman was puzzled, “Isn’t that what I am doing now?”'
 
 Clean this document
 add codepens to projects https://codepen.io/fsalazaraguirre/pen/ExxyJpG
+
+https://medium.com/better-programming/here-are-6-frontend-challenges-to-code-9952190c97cc things to do
+
+use grid-template-areas for react 
+.site {display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto 1fr 3fr;
+grid-area: [area-name]
+}
+Nested grids
+CSS Grid Tutorial Responsive Crash Course https://gridbyexample.com 
+
+Issue TRacker(BUG Tracker) on web pages directly on site what i was talking with a analytics script or something like that
+the app on angular that the tour component is a good idea
