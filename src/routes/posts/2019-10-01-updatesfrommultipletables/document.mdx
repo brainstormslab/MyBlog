@@ -1,0 +1,47 @@
+UPDATE
+    Table_A
+SET
+    Table_A.col1 = Table_B.col1,
+    Table_A.col2 = Table_B.col2
+FROM
+    Some_Table AS Table_A
+    INNER JOIN Other_Table AS Table_B
+        ON Table_A.id = Table_B.id
+WHERE
+    Table_A.col3 = 'cool'
+
+
+    In SQL Server 2008 (or better), use MERGE
+
+MERGE INTO YourTable T
+   USING other_table S 
+      ON T.id = S.id
+         AND S.tsql = 'cool'
+WHEN MATCHED THEN
+   UPDATE 
+      SET col1 = S.col1, 
+          col2 = S.col2;
+Alternatively:
+
+MERGE INTO YourTable T
+   USING (
+          SELECT id, col1, col2 
+            FROM other_table 
+           WHERE tsql = 'cool'
+         ) S
+      ON T.id = S.id
+WHEN MATCHED THEN
+   UPDATE 
+      SET col1 = S.col1, 
+          col2 = S.col2;
+
+          multiple ways
+
+          UPDATE table 
+SET Col1 = i.Col1, 
+    Col2 = i.Col2 
+FROM (
+    SELECT ID, Col1, Col2 
+    FROM other_table) i
+WHERE 
+    i.ID = table.ID
