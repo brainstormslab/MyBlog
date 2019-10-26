@@ -1,15 +1,14 @@
 $hexColor: #77F6FD;
 
-body {
-  background: #373940;
-  overflow: hidden;
-}
-
 #loadingcontainer {
   position: absolute;
   top: 45%;
   left: 52%;
   animation: rotateHue 25s linear infinite;
+  z-index: 10000;
+  background-color: red;
+  width: 100%;
+  height: 100%;
 }
 
 .hexagon {

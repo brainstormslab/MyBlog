@@ -2,6 +2,70 @@ import styles from './document.module.scss'
 
 <div className={styles["Welcome"]}>
 
+The “Fizz-Buzz test” is an interview question designed to help filter out the 99.5% of programming job candidates who can’t seem to program their way out of a wet paper bag. (wiki.c2.com)
+Sometimes, even the simplest problem can become tricky.
+That is the case for the FizzBuzz interview question.
+Write a program that prints the numbers from 1 to 100.
+But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.
+For numbers which are multiples of both three and five print “FizzBuzz”.
+1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz...
+Pretty simple, isn’t it? Well, this actually can be harder than you think!
+Every programming language provides its own way and tools to handle that kind of problems… but how can we measure skills with such a simple task?
+Is it really important to ask super-complex questions about parallel programming, algorithms, type theory, graph theory… ?
+Of course, these are important topics and should definitely be tested, but when you’re screening a candidate, maybe you want to test just his developer skills. And that’s where the FizzBuzz question comes to help:
+Many possible approaches.
+Every developer should pass this simple test.
+Helps you to understand the programming style and approach of the candidate.
+How does he work under pressure?
+Does he care about maintainability? Clean code? Scalability?
+FizzBuzz in JavaScript
+
+Well, that is not the cleanest solution… but it works!
+While the candidate is writing the code above, you’ll be able to understand a bunch of things:
+Is he just writing a quick and dirty solution?
+Is he thinking about writing clean and maintainable code?
+Is he starting to plan something for the future, when the requirements may change?
+Is he trying to impress you with his language and logical knowledge?
+Given the example above, answers may be… yes, nope, nope, nope.
+So now, you may ask the candidate why is he writing multiple console.log statements? Imagine that you’re about to add a new super-cool logging library to your software… you have to replace four console.log statements!
+
+Ok, great! Still working! But there is still a big problem about maintainability.
+What if we want to add more control structures? Let’s say we want to print “Foo” when a number is multiple of 7 and “Bar” when it’s multiple of 11…
+
+Bad, bad, bad idea… For instance, now we got 21 that should print both “Foo” and “Fizz”… but it’s printing only “Fizz”! So we have to add more control structures… that is unmaintainable.
+Another great question would be “why are you using multiple else if statements that checks against a simple numeric value? Is there a better alternative?
+
+switch/case to rescue! But we still have the scalability and maintainability problem! Let’s fix this:
+
+Great! So now, if you want to add one more condition to your switch/case statement, you can just find the minimum common multiple and test it against the current i number. Problem solved!
+But now… let’s make the things harder. How would you approach the same problem without using loops?
+That is a tricky question and will show the candidate deep knowledge of that particular programming language. I mean, there are just a few programming languages that doesn’t support loops, so we’re all pretty addicted to them!
+Finding an alternative won’t be simple!
+
+Spread Operator + Map Method and here we are! We changed a lot our implementation from start ‘till now, huh?
+Let’s analyze the code above:
+The candidate respected DRY (Don’t Repeat Yourself) concept.
+The candidate knows how to create an array from zero easily, using an ES6 feature (Spread Operator).
+The candidate knows how the Map Method works, and what to expect as return value. Maybe he knows what a Functor is? That could be a great question.
+The candidate chose to avoid recursion, maybe knowing that JavaScript has many problems with recursion?
+That last implementation returns a value. So, for the first time he’s not logging some value to the console, but joining an array of values into a string. If we ask him to remove the join operation, we have a super-testable array of values.
+From here, we can test our candidate’s testing skills or even TDD approach. In fact, we could give him the following tests and see how he adapts his code to pass every test.
+I know, TDD approach should declare tests before the implementation itself… but that can be a great case to see how a candidate refactors his code after seeing some tests.
+
+Ok so these are our tests! Let’s se how the candidate should refactor its code:
+
+Great! What do we know now?
+Candidate understands CommonJS module system.
+We can see that he’s using some ES6 features, so maybe he knows about the ES6 module system? Great question to ask.
+Candidate still respects DRY concepts.
+Code is maintainable, testable and safe. Great job!
+If you want to play with that code, I made a little sandbox with tests available here: https://repl.it/@micheleriva/Jest-FizzBuzz.
+Conclusion
+So as you can see, that simple task can show a lot about a candidate. Therefore, it should be a great question to ask during an interview.
+We can learn a lot about a programmer while he’s approaching that simple problem: does he care about clean code? Maintainability? Scalability? Modularity? Testing? I’ve already mentioned five huge topics!
+How much more can you understand from a programmer, when such a simple task is given?
+
+Info from 
 https://blog.usejournal.com/about-coding-the-fizzbuzz-interview-question-9bcd08d9dfe5
 
 </div>
