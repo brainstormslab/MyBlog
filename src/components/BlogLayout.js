@@ -11,14 +11,14 @@ import LoadingIndicator from './LoadingIndicator'
 import styles from './BlogLayout.module.scss'
 import Bio from './Bio'
 import ProjectsSection from './ProjectsSection'
-import BackgroundHexa from './BackgroundHexa'
-
+// import BackgroundHexa from './BackgroundHexa'
+// <BackgroundHexa />
 function BlogLayout({ blogRoot, isViewingIndex }) {
   let loadingRoute = useLoadingRoute()
 
   return (
     <div className={styles.container}>
-      <BackgroundHexa />
+      
       <LoadingIndicator active={!!loadingRoute} />
 
       {// Don't show the header on index pages, as it has a special header.
@@ -31,7 +31,6 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
         </header>
       )}
       <div className={styles.wrapper}>
-        <div className={styles.row}>
           <div className={styles.column}>
             <div className={styles.leftcolumn}>
               <Bio />
@@ -51,7 +50,6 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
                 <ProjectsSection />
             </div>
           </div>
-      </div>
       </div>
     </div>
   )
