@@ -7,7 +7,7 @@ function Bio(props) {
     email: "fd.salazaraguirre@gmail.com",
     size: 56,
   })
-  
+  // https://github.com/danistefanovic/build-your-own-x
   return (
     <div>
       <div className={`
@@ -30,6 +30,10 @@ function Bio(props) {
             https://github.com/fdsalazaraguirre/dayphrases
 
             https://dayphrases-api.brainstormlist.com/api/dayphrase/random
+            </p>
+            <p>
+              Developer Road Map
+            https://github.com/kamranahmedse/developer-roadmap
             </p>
           </div>
         </div>

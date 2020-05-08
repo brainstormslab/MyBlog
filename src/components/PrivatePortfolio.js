@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './PrivatePortfolio.module.scss'
 
 function PrivatePortfolio() {
+        // TODO: Add at the top of about but probably will be a cool effect 
+        // if those are Icons of the companys
     return (
         <div>
             <p>All of the work that I have done has been either under NDA or is for private organizations. I don't really have a portfolio that I can show publicly.</p>

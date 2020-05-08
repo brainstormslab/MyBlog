@@ -2,6 +2,18 @@
   margin: 0 auto;
 }
 
+@keyframes toptolow {
+	0% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: 0% 500%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
+}
+
 .title {
   font-family: avenir, sans-serif;
   font-size: 1.44rem;
@@ -25,7 +37,23 @@
 }
 
 
-.column{
+.specialcolumn{
+  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 100% 100%;
+  animation: toptolow 15s ease infinite;
+  background: url("http://www.wallpaperup.com/uploads/wallpapers/2012/12/08/24017/94607145c1e2a7a382a882aa5592835a.jpg") no-repeat center;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
 
 .leftcolumn{
@@ -34,6 +62,8 @@
 
 .centercolumn{
   padding: 2.625rem 1.3125rem;
+  // Agregar una sombra de letra que se desaparezca en la letras
+  // estilo starwars
 }
 
 .rightcolumn{

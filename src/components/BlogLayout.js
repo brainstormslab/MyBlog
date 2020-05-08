@@ -45,7 +45,7 @@ function BlogLayout({ blogRoot, isViewingIndex }) {
               </main>
             </div>
           </div>
-          <div className={styles.column}>
+          <div className={styles.specialcolumn}>
             <div className={styles.rightcolumn}>
                 <ProjectsSection />
             </div>
